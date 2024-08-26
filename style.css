@@ -12,16 +12,32 @@ html {
   /* position: absolute; */
   /* top: 10%;
   left: 25%; */
+  /*  */
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+  /* Hide scrollbar in various browsers */
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  /*  */
   display: flex;
   flex-direction: row;
   height: fit-content;
-  width: auto;
-  /* background-color: blue; */
+  width: 80svw;
+  margin-left: 10svw;
   opacity: 0.7;
   border: 2px solid goldenrod;
 }
 
+#thumb-container::-webkit-scrollbar {
+  display: none;
+}
+.thumb-img {
+  flex-shrink: 0;
+}
 .thumb-img img {
+  display: block;
   width: 100%;
   height: auto;
   max-width: 200px;
@@ -39,21 +55,20 @@ html {
   /* TODO: Make sure this is working as expected!!! */
   /* overflow-x: hidden; */
   display: flex;
-  justify-content: center; 
-  align-items: center; /
+  justify-content: center;
+  align-items: stretch;
   /* End of TODO */
 }
 
 #display-container picture {
   display: flex;
-  /* justify-content: center; */
 }
 
 #display-container picture img {
   height: auto;
 }
 
-#button-wrapper{
+#button-wrapper {
   /* position: absolute; */
   /* top: 50%; */
   display: flex;
@@ -92,20 +107,18 @@ html {
 
 @media only screen and (max-width: 768px) {
   #thumb-container {
-    flex-wrap: wrap;
     bottom: 5px;
     left: 10%;
   }
 
   .thumb-img img {
-    max-width: 50px;
+    max-width: 100px;
   }
 }
 
 @media (pointer: coarse) {
-
-  #click-right, #click-left {
+  #click-right,
+  #click-left {
     padding: 20px;
   }
 }
-

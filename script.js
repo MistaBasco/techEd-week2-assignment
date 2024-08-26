@@ -320,13 +320,14 @@ function createThumbs() {
 
     imgElement.sizes = image.img.sizes;
     imgElement.srcset = image.img.srcset;
-    picElement.source = sourceElement;
-    picElement.img = imgElement;
     imgElement.src = image.img.src;
     imgElement.alt = image.img.alt;
 
     picElement.appendChild(sourceElement);
     picElement.appendChild(imgElement);
+
+    picElement.setAttribute("role", "option");
+    picElement.setAttribute("aria-selected", "false");
     picElement.setAttribute("tabindex", 0);
     picElement.className = "thumb-img";
 
@@ -382,6 +383,7 @@ leftClick.addEventListener("click", () => {
     biggify(imageArray[picIndex - 1]);
     picIndex--;
   }
+  updateDisplay(picIndex);
 });
 
 //Forward Button Event Listener
@@ -393,6 +395,7 @@ rightClick.addEventListener("click", () => {
     biggify(imageArray[picIndex + 1]);
     picIndex++;
   }
+  updateDisplay(picIndex);
 });
 
 function biggify(image) {
@@ -416,6 +419,22 @@ function biggify(image) {
   displayImage.appendChild(bigPicElement);
 }
 
+function updateDisplay(index) {
+  const selectedImage = imageArray[index];
+  const displayImg = displayImage.querySelector("img");
+  displayImg.src = selectedImage.img.src;
+  displayImage.alt = selectedImage.img.alt;
+
+  displayImage.setAttribute("aria-label", selectedImage.img.alt);
+
+  thumbs.querySelectorAll("picture").forEach((thumb, thumbIndex) => {
+    if (thumbIndex === index) {
+      thumb.setAttribute("aria-selected", "true");
+    } else {
+      thumb.setAttribute("aria-selected", "false");
+    }
+  });
+}
 //Runs
 
 createThumbs();
