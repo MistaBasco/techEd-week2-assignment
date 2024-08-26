@@ -1,7 +1,9 @@
 //Pulls
 const thumbs = document.getElementById("thumb-container");
 const displayImage = document.getElementById("display-container");
-
+const buttonWrapper = document.getElementById("button-wrapper");
+const leftClick = document.getElementById("click-left");
+const rightClick = document.getElementById("click-right");
 //Definitions
 const imgName = "img-";
 const imgDir = "/assets/img";
@@ -37,7 +39,7 @@ const imageArray = [
         `${imgDir}/${imgName}1/${imgName}1${cScale}w_1400.jpg 1400w`,
       ].join(", "),
       src: `${imgDir}/${imgName}1_source.jpg`,
-      alt: "A lovely cityscape. Picture taken from an elevated position.",
+      alt: "A lovely cityscape. Picture taken from an elevated position. Sunrays through clouds",
     },
   },
   {
@@ -61,7 +63,7 @@ const imageArray = [
         ,
       ].join(", "),
       src: `${imgDir}/${imgName}2_source.jpg`,
-      alt: "the second cityscape",
+      alt: "A black and white cityscape with a building under construction. Picture taken above the clouds",
     },
   },
   {
@@ -91,7 +93,7 @@ const imageArray = [
         ,
       ],
       src: `${imgDir}/${imgName}3_source.jpg`,
-      alt: `${imgDir}/${imgName}3_alt.txt`,
+      alt: `A well lit cityscape at night with a purple tint. Neon/Cyberpunk feel`,
     },
   },
   {
@@ -124,7 +126,7 @@ const imageArray = [
         `${imgDir}/${imgName}4/${imgName}4${cScale}w_1400.jpg 1400w`,
       ].join(", "),
       src: `${imgDir}/${imgName}4_source.jpg`,
-      alt: `${imgDir}/${imgName}4_alt.txt`,
+      alt: `A cityscape in the early evening/morning contrasted to show mainly greys and yellows`,
     },
   },
   {
@@ -156,7 +158,7 @@ const imageArray = [
         `${imgDir}/${imgName}5/${imgName}5${cScale}w_1400.jpg 1400w`,
       ].join(", "),
       src: `${imgDir}/${imgName}5_source.jpg`,
-      alt: `${imgDir}/${imgName}5_alt.txt`,
+      alt: `Cityscape timelapse with busy roads in the shot, so vehicle lights are blurred through the streets`,
     },
   },
   {
@@ -186,7 +188,7 @@ const imageArray = [
         `${imgDir}/${imgName}6/${imgName}6${cScale}w_1400.jpg 1400w`,
       ].join(", "),
       src: `${imgDir}/${imgName}6_source.jpg`,
-      alt: `${imgDir}/${imgName}6_alt.txt`,
+      alt: `Cityscape photo taken across the water, lightning strike in the background`,
     },
   },
   {
@@ -216,7 +218,7 @@ const imageArray = [
         `${imgDir}/${imgName}7/${imgName}7${cScale}w_1400.jpg 1400w`,
       ].join(", "),
       src: `${imgDir}/${imgName}7_source.jpg`,
-      alt: `${imgDir}/${imgName}7_alt.txt`,
+      alt: `A serene dock with small boats and colourful buildings. Purple tint and high contrast give the image an other-worldy feel`,
     },
   },
 
@@ -245,7 +247,7 @@ const imageArray = [
         `${imgDir}/${imgName}8/${imgName}8${cScale}w_1400.jpg 1400w`,
       ].join(", "),
       src: `${imgDir}/${imgName}8_source.jpg`,
-      alt: `${imgDir}/${imgName}8_alt.txt`,
+      alt: "Cityscape taken from a distance during sunset, sepia tones",
     },
   },
   {
@@ -274,7 +276,7 @@ const imageArray = [
         `${imgDir}/${imgName}9/${imgName}9${cScale}w_1400.jpg 1400w`,
       ].join(", "),
       src: `${imgDir}/${imgName}9_source.jpg`,
-      alt: `${imgDir}/${imgName}9_alt.txt`,
+      alt: `Cityscape from accross the water, at night with a lot of stars in the sky`,
     },
   },
   {
@@ -300,7 +302,7 @@ const imageArray = [
         `${imgDir}/${imgName}10/${imgName}10${cScale}w_1400.jpg 1400w`,
       ].join(", "),
       src: `${imgDir}/${imgName}10_source.jpg`,
-      alt: `${imgDir}/${imgName}10_alt.txt`,
+      alt: "Timelapse of the middle of a busy road, no vehicles can be seen, however the blur from the white headlights on the left and the red brakelights on the rights can be seen",
     },
   },
 ];
@@ -369,6 +371,27 @@ thumbs.addEventListener("keydown", (event) => {
       biggify(imageArray[picIndex + 1]);
       picIndex++;
     }
+  }
+});
+//Back Button Event Listener
+leftClick.addEventListener("click", () => {
+  if (picIndex <= 0) {
+    biggify(imageArray[imageArray.length - 1]);
+    picIndex = imageArray.length - 1;
+  } else {
+    biggify(imageArray[picIndex - 1]);
+    picIndex--;
+  }
+});
+
+//Forward Button Event Listener
+rightClick.addEventListener("click", () => {
+  if (picIndex >= imageArray.length - 1) {
+    biggify(imageArray[0]);
+    picIndex = 0;
+  } else {
+    biggify(imageArray[picIndex + 1]);
+    picIndex++;
   }
 });
 

@@ -37,7 +37,7 @@ html {
   height: 100svh;
   width: 100svw;
   /* TODO: Make sure this is working as expected!!! */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   display: flex;
   justify-content: center; 
   align-items: center; /
@@ -50,8 +50,44 @@ html {
 }
 
 #display-container picture img {
-  /* width: 1; */
   height: auto;
+}
+
+#button-wrapper{
+  /* position: absolute; */
+  /* top: 50%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-top: 30svh;
+  margin-left: 5svw;
+}
+
+#click-left {
+  height: 25px;
+  width: 25px;
+  background-image: url("https://img.icons8.com/ios-filled/50/circled-left-2.png");
+  background-size: cover;
+  background-position: center;
+  border: none;
+}
+
+#click-left:hover {
+  background-image: url("https://img.icons8.com/ios-filled/50/FCC419/circled-left-2.png");
+}
+
+#click-right {
+  height: 25px;
+  width: 25px;
+  background-image: url("https://img.icons8.com/ios-filled/50/circled-right-2.png");
+  background-size: cover;
+  background-position: center;
+  border: none;
+}
+
+#click-right:hover {
+  background-image: url("https://img.icons8.com/ios-filled/50/FCC419/circled-right-2.png");
 }
 
 @media only screen and (max-width: 768px) {
@@ -65,3 +101,11 @@ html {
     max-width: 50px;
   }
 }
+
+@media (pointer: coarse) {
+
+  #click-right, #click-left {
+    padding: 20px;
+  }
+}
+
