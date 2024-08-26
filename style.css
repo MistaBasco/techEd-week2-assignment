@@ -9,10 +9,6 @@ html {
 }
 
 #thumb-container {
-  /* position: absolute; */
-  /* top: 10%;
-  left: 25%; */
-  /*  */
   overflow-x: auto;
   white-space: nowrap;
   flex-shrink: 0;
@@ -20,7 +16,6 @@ html {
   -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
   -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
   scrollbar-width: none; /* Hide scrollbar in Firefox */
-  /*  */
   display: flex;
   flex-direction: row;
   height: fit-content;
@@ -69,8 +64,6 @@ html {
 }
 
 #button-wrapper {
-  /* position: absolute; */
-  /* top: 50%; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -107,12 +100,17 @@ html {
 
 @media only screen and (max-width: 768px) {
   #thumb-container {
+    position: absolute;
     bottom: 5px;
-    left: 10%;
   }
 
   .thumb-img img {
     max-width: 100px;
+  }
+  #button-wrapper {
+    margin-top: 95svh;
+    width: 100%;
+    margin-left: 0;
   }
 }
 
