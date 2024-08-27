@@ -6,7 +6,7 @@ const leftClick = document.getElementById("click-left");
 const rightClick = document.getElementById("click-right");
 //Definitions
 const imgName = "img-";
-const imgDir = "/assets/img";
+const imgDir = "./assets/img";
 const ar = "_ar_1_1,c_fill,g_auto__c_scale,";
 const cScale = "_c_scale,";
 const mediaSt = "(max-width: 767px)";
